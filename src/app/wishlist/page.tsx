@@ -112,7 +112,7 @@ export default function Wishlist() {
                   </div>
                   <div className="p-4">
                     <h3 className="font-medium">Air Jordan 1 Mid SE Craft</h3>
-                    <p className="text-sm text-gray-600">Men's Shoes</p>
+                    <p className="text-sm text-gray-600">Men&apos;s Shoes</p>
                     <p className="text-sm font-medium mt-2">MRP: ₹ 12,295.00</p>
                   </div>
                 </CardContent>

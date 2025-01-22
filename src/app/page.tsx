@@ -7,7 +7,6 @@ import GearUp from "@/components/GearUp";
 import HelloNikeApp from "@/components/HelloNikeApp";
 import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
-import { fetchData } from "@/script/migration";
 
 export default async function Home() {
   

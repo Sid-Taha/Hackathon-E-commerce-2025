@@ -27,7 +27,7 @@ export default function ProductsCards({
   selectedCategory: string | null;
   price: number;
 }) {
-  const [search, setSearch] = useAtom(searchName);
+  const [search] = useAtom(searchName);
   const [data, setData] = useState<Card[]>([]);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
   const [error, setError] = useState<string | null>(null); // Add error state

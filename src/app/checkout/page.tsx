@@ -143,7 +143,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Enter Your Name"
                     value={name}
-                    onChange={(e: any) => setName(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -153,7 +153,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Enter Your Email"
                     value={email}
-                    onChange={(e: any) => setEmail(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -162,7 +162,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Enter Your Phone Number"
                     value={phone}
-                    onChange={(e: any) => setPhone(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -171,7 +171,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Enter Your Address"
                     value={address}
-                    onChange={(e: any) => setAddress(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddress(e.target.value)}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -180,7 +180,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Describe Your City"
                     value={city}
-                    onChange={(e: any) => setCity(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
                   />
                 </div>
         
@@ -190,7 +190,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Postal Code"
                     value={postalCode}
-                    onChange={(e: any) => setPostalCode(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPostalCode(e.target.value)}
                   />
 
                   <Input
@@ -198,7 +198,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="Locality"
                     value={locality}
-                    onChange={(e: any) => setLocality(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLocality(e.target.value)}
                   />
                 </div>
               </div>
@@ -213,7 +213,7 @@ export default function CheckoutForm() {
                     className="rounded-md py-6"
                     placeholder="PAN"
                     value={pan}
-                    onChange={(e: any) => setPan(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPan(e.target.value)}
                   />
                   <p className="text-xs text-gray-500">
                     Enter your PAN to enable payment with UPI, Net Banking or
@@ -311,7 +311,7 @@ export default function CheckoutForm() {
               <Button
                 className="w-full rounded-full py-6"
                 onClick={handlePayment}>
-                Let's Pay
+                Let&apos;s Pay
               </Button>
             </div>
           </div>

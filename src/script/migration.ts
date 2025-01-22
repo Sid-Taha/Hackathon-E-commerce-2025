@@ -18,6 +18,18 @@ async function uploadImageToSanity(imageUrl: string) {
   }
 }
 
+interface Product {
+  productName: string;
+  category: string;
+  price: number;
+  inventory: number;
+  colors: string[];
+  status: string;
+  image: string;
+  description: string;
+}
+
+
 export async function fetchData() {
   try {
     const response = await fetch("https://template-03-api.vercel.app/api/products");
@@ -26,7 +38,7 @@ export async function fetchData() {
     const data = await products.data
 
     // Upload images concurrently
-    const uploadPromises = data.map(async (product: any) => {
+    const uploadPromises = data.map(async (product: Product) => {
       const imageAsset = await uploadImageToSanity(product.image);
 
       

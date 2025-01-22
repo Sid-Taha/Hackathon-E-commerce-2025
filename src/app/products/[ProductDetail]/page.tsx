@@ -12,7 +12,7 @@ export default async function ProductCardDetails({searchParams}: {searchParams: 
 
 {
 
-  const {image, colors, productName, _id, category, description,inventory, price} = await searchParams
+  const {image, colors, productName, _id, description,inventory, price} = await searchParams
 
   return (
     <div className="min-h-screen bg-white p-6 mt-[100px]">
