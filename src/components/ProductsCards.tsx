@@ -7,6 +7,7 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { searchName } from "@/globalState/globalState";
+import { sanityFetch } from "@/services/sanityApi";
 
 export interface Card {
   image: string;
@@ -48,17 +49,7 @@ export default function ProductsCards({
           query = `*[_type == 'product' && category == "${selectedCategory}"]`;
         }
 
-        const res: Card[] = await client.fetch(`${query}{
-          'image': image.asset->url,
-          colors,
-          productName,
-          _id,
-          category,
-          status,
-          description,
-          inventory,
-          price
-        }`);
+        const res = await sanityFetch(query);
 
         setData(res);
       } catch (error) {
