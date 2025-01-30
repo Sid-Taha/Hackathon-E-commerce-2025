@@ -12,6 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useAtom } from 'jotai'
 import { searchName } from '@/globalState/globalState'
+import { UserButton } from '@clerk/nextjs'
 
 function Header() {
   
@@ -32,10 +33,13 @@ function Header() {
             <span className="text-gray-300">|</span>
             <Link href="/join-us" className="hover:text-gray-600">Join Us</Link>
             <span className="text-gray-300">|</span>
-            <Link href="/login" className="hover:text-gray-600">Sign In</Link>
+            {/* <Link href="/login" className="hover:text-gray-600">Sign In</Link> */}
+            <UserButton afterSignOutUrl="/" />
           </nav>
         </div>
       </div>
+
+        
 
       {/* Main header */}
       <div className="h-16 bg-white border-b">

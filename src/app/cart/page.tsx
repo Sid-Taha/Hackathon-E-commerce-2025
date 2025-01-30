@@ -8,6 +8,7 @@
   import Link from "next/link";
   import { useRouter, useSearchParams } from "next/navigation";
   import { useEffect, useState } from "react";
+  import { userPostSanity } from "@/services/userId";
 
   interface Iproduct{
     name: string
@@ -15,41 +16,51 @@
     description : string 
     image: string
     quantity: number
+    userID: string | null | undefined
   }
+
 
   export default function ShoppingCart() {
 
     const router = useRouter()
     const searchParam = useSearchParams();
     const [cartItem, setCartItem] = useState<Iproduct[]>([]);
-
+        
     useEffect(() => {
       const cart = localStorage.getItem("cart");
       const updatedCart = cart ? JSON.parse(cart) : [];
       setCartItem(updatedCart);
     }, []);
 
-    useEffect(()=>{
-      const cart = localStorage.getItem("cart")
-      const updatedCart = cart ? JSON.parse(cart) : []
-      
-      const name = searchParam.get("name");
-      const price = searchParam.get("price");
-      const description = searchParam.get("description");
-      const image = searchParam.get("image");
 
-      if(name && price && description && image){
-        const isDuplicate: boolean =  updatedCart.some((item: Iproduct) => item.name === name);
-      
-        if(!isDuplicate){
-          updatedCart.push({name, price, description, image, quantity: 1})
+    useEffect(() => {
+      async function getUserId() {
+        return await userPostSanity();
+      }
+    
+      getUserId().then((sanityUserId) => {
+        const cart = localStorage.getItem("cart");
+        const updatedCart = cart ? JSON.parse(cart) : [];
+        
+        const name = searchParam.get("name");
+        const price = searchParam.get("price");
+        const description = searchParam.get("description");
+        const image = searchParam.get("image");
+    
+        if (name && price && description && image) {
+          const isDuplicate = updatedCart.some((item: Iproduct) => item.name === name);
+          
+          if (!isDuplicate) {
+            updatedCart.push({ name, price, description, image, quantity: 1, userID: sanityUserId });
+          }
+
+    
+          localStorage.setItem("cart", JSON.stringify(updatedCart));
+          setCartItem(updatedCart);
+          router.replace("/cart");
         }
-
-        localStorage.setItem("cart", JSON.stringify(updatedCart))
-        setCartItem(updatedCart)
-        router.replace("/cart")
-      }  
-    },[searchParam, router])
+      });
+    }, [searchParam, router]);
 
     function handleRemoveItem(index: number){
       const removeCard = [...cartItem]
@@ -120,11 +131,9 @@
                               <h3 className="font-medium">
                                 {item.name}
                               </h3>
+                              
                               <p className="text-sm text-gray-600">
-                                Men&apos;s Short-Sleeve Running Top
-                              </p>
-                              <p className="text-sm text-gray-600">
-                                Ashen Slate/Cobalt Bliss
+                                {item.userID}
                               </p>
                               <div className="mt-2 space-y-1">
                                 <p className="text-sm">Size: L</p>

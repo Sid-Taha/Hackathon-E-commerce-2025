@@ -1,6 +1,7 @@
 // src\components\Featured.tsx
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function FeaturedSection() {
   return (
@@ -28,11 +29,13 @@ export default function FeaturedSection() {
           <p className="text-sm md:text-base lg:text-[15px] leading-relaxed text-neutral-900 mb-8 max-w-lg mx-auto">
             Cause everyone should know the feeling of running in that perfect pair.
           </p>
-          <Button 
-            className="rounded-full px-6 py-3 bg-neutral-900 hover:bg-neutral-800 text-white"
-          >
-            Find Your Shoe
-          </Button>
+          <Link href="/products">
+            <Button 
+              className="rounded-full px-6 py-3 bg-neutral-900 hover:bg-neutral-800 text-white"
+            >
+              Find Your Shoe
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

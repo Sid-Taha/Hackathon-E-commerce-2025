@@ -24,7 +24,7 @@ export default function Header({ setSelectedCategory }:{ setSelectedCategory: (n
       const res: string[] = await client.fetch(`*[_type == 'product'].category`);
       const uniqueCategories: string[] = [...new Set(res)];
       setUcategory(uniqueCategories);
-}
+    }
 
     getData();
   }, []);

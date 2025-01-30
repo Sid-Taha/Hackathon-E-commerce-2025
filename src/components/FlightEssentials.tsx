@@ -1,6 +1,7 @@
 // src\components\FlightEssentials.tsx
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function FlightEssentials() {
   return (
@@ -49,11 +50,13 @@ export default function FlightEssentials() {
           <p className="text-sm md:text-base text-[#111111] font-abeezee max-w-[578px] mx-auto">
             Your built-to-last, all-week wears—but with style only Jordan Brand can deliver.
           </p>
-          <Button
-            className="rounded-full bg-[#111111] text-white hover:bg-[#222222] px-6"
-          >
-            Shop
-          </Button>
+          <Link href={"/products"}>
+            <Button
+              className="rounded-full bg-[#111111] text-white hover:bg-[#222222] px-6"
+            >
+              Shop
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
